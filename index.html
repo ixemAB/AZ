@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azərbaycan-İngilis Lüğəti</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">AB</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Ana Səhifə</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="AZ-ENG.html">AZ-ENG</a>
+                    </li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="text-black text-center py-5">
+        <div class="container">
+            <h1>Azərbaycan-İngilis Lüğəti</h1>
+            <p class="lead">Sözləri axtarın və tələffüzünü öyrənin.</p>
+        </div>
+    </header>
+
+    <main class="container py-4">
+        <section class="mb-4">
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Söz axtar..." id="search-input" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit" id="search-button">Axtar</button>
+            </form>
+        </section>
+
+        <section id="search-results" class="mt-4">
+            <div id="results-container" class="d-none">
+                <div id="word-details" class="word-entry d-none">
+                    <h5 class="az-word"></h5>
+                    <p><span class="en-word-label">İngilis: </span><span class="en-word"></span></p>
+                    <p><span class="pronunciation-label">Tələffüz: </span><span class="pronunciation"></span></p>
+                </div>
+                <div id="no-results" class="alert alert-danger d-none" role="alert">
+                    Nəticə tapılmadı.
+                </div>
+            </div>
+        </section>
+
+        <section id="phonetic-table" class="mt-5">
+            <h2>Fonetik Simvollar</h2>
+            <p class="lead">Bu cədvəl lüğətdə istifadə olunan bəzi əsas fonetik simvolları və onların təxmini Azərbaycan dilindəki oxunuşlarını göstərir.</p>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>IPA Simvolu</th>
+                        <th>Təxmini Azərbaycan Oxunuşu</th>
+                        <th>İngilis Dilindəki Nümunə</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>iː</td>
+                        <td>Uzun "i"</td>
+                        <td>`see`, `please`</td>
+                    </tr>
+                    <tr>
+                        <td>ɪ</td>
+                        <td>Qısa "i"</td>
+                        <td>`bit`, `fifth`</td>
+                    </tr>
+                    <tr>
+                        <td>e</td>
+                        <td>"e"</td>
+                        <td>`bed`, `ten`</td>
+                    </tr>
+                    <tr>
+                        <td>æ</td>
+                        <td>"ə" kimi, daha açıq</td>
+                        <td>`cat`, `fast`</td>
+                    </tr>
+                    <tr>
+                        <td>ɑː</td>
+                        <td>Uzun a</td>
+                        <td>father, car</td>
+                    </tr>
+                    <tr>
+                        <td>ɔː</td>
+                        <td>Uzun o</td>
+                        <td>saw, fourth</td>
+                    </tr>
+                    <tr>
+                        <td>uː</td>
+                        <td>Uzun u</td>
+                        <td>too, soon</td>
+                    </tr>
+                    <tr>
+                        <td>ʊ</td>
+                        <td>Qısa u</td>
+                        <td>put, book</td>
+                    </tr>
+                    <tr>
+                        <td>ə</td>
+                        <td>Şva</td>
+                        <td>about, teacher</td>
+                    </tr>
+                    <tr>
+                        <td>p</td>
+                        <td>"p"</td>
+                        <td>`pen`, `stop`</td>
+                    </tr>
+                    <tr>
+                        <td>b</td>
+                        <td>"b"</td>
+                        <td>`ball`, `about`</td>
+                    </tr>
+                    <tr>
+                        <td>t</td>
+                        <td>"t"</td>
+                        <td>`tea`, `fast`</td>
+                    </tr>
+                    <tr>
+                        <td>d</td>
+                        <td>"d"</td>
+                        <td>`dog`, `good`</td>
+                    </tr>
+                    <tr>
+                        <td>k</td>
+                        <td>"k"</td>
+                        <td>`cat`, `clock`</td>
+                    </tr>
+                    <tr>
+                        <td>ɡ</td>
+                        <td>"q"</td>
+                        <td>`go`, `begin`</td>
+                    </tr>
+                    <tr>
+                        <td>f</td>
+                        <td>f</td>
+                        <td>fan, fifth</td>
+                    </tr>
+                    <tr>
+                        <td>v</td>
+                        <td>v</td>
+                        <td>van, very</td>
+                    </tr>
+                    <tr>
+                        <td>s</td>
+                        <td>s</td>
+                        <td>sun, see</td>
+                    </tr>
+                    <tr>
+                        <td>z</td>
+                        <td>z</td>
+                        <td>zoo, lazy</td>
+                    </tr>
+                    <tr>
+                        <td>θ</td>
+                        <td>"th" (səssiz)</td>
+                        <td>`thin`, `thousand`</td>
+                    </tr>
+                    <tr>
+                        <td>ð</td>
+                        <td>"th" (səsli)</td>
+                        <td>`this`, `that`</td>
+                    </tr>
+                    <tr>
+                        <td>ʃ</td>
+                        <td>"ş"</td>
+                        <td>`ship`, `social`</td>
+                    </tr>
+                    <tr>
+                        <td>ʒ</td>
+                        <td>"j"</td>
+                        <td>`vision`, `usually`</td>
+                    </tr>
+                    <tr>
+                        <td>h</td>
+                        <td>h</td>
+                        <td>hat, hello</td>
+                    </tr>
+                    <tr>
+                        <td>m</td>
+                        <td>m</td>
+                        <td>man, money</td>
+                    </tr>
+                    <tr>
+                        <td>n</td>
+                        <td>n</td>
+                        <td>no, nice</td>
+                    </tr>
+                    <tr>
+                        <td>ŋ</td>
+                        <td>ng</td>
+                        <td>sing, morning</td>
+                    </tr>
+                    <tr>
+                        <td>l</td>
+                        <td>l</td>
+                        <td>leg, hello</td>
+                    </tr>
+                    <tr>
+                        <td>r</td>
+                        <td>r</td>
+                        <td>red, very</td>
+                    </tr>
+                    <tr>
+                        <td>w</td>
+                        <td>w</td>
+                        <td>wet, welcome</td>
+                    </tr>
+                    <tr>
+                        <td>j</td>
+                        <td>y</td>
+                        <td>yes, you</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <table id="data-table-body">
+        </table>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Azərbaycan-İngilis Lüğəti. Bütün hüquqlar qorunur.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script> 
+</body>
+</html>

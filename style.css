@@ -1,0 +1,124 @@
+﻿body {
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.25rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+table thead th {
+  background-color: #e9ecef;
+  color: #00ff0d;
+  font-weight: 500;
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+table td,
+table th {
+  border: 1px solid #dee2e6;
+  padding: 12px;
+  vertical-align: top;
+}
+
+.text-primary {
+  color: #1bcaff !important;
+}
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+.navbar-toggler {
+  border-color: white;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3c%3fxml version='1.0' encoding='UTF-8'%3f%3e%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(8, 255, 197)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.nav-link:hover {
+  color: #f2e93a;
+}
+
+.dropdown-menu {
+  background-color: #06ff12;
+  border: 1px solid #00ff2a;
+}
+
+.dropdown-item {
+  color: #fff;
+}
+
+.dropdown-item:hover {
+  background-color: #11f811;
+  color: #fff;
+}
+
+.word-entry {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f8f9fa;
+}
+
+.alert-danger {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.navbar.bg-dark {
+  background-color: #08ffc5;$teal-500  /* İstədiyiniz rəng (məsələn, qırmızı) */
+}
+
+/* Menyu Stili Başlayır  */
+.navbar {
+  background-color: #08ffc5;$teal-500 /* Tünd boz arxa fon (Bootstrap-ın bg-dark klassına uyğun) */
+}
+
+.navbar-brand {
+  color: #08ffc5; /* Ağ loqo/ad rəngi */
+}
+
+.nav-link {
+  color: #08ffc5; /* Ağ link rəngi */
+}
+
+.nav-link:hover {
+  color: #fffb08; /* Bir az açıq boz hover rəngi */
+}
+
+.nav-link.active {
+  color: #08ffc5; /* Mavi aktiv link rəngi (Bootstrap-ın primary rəngi) */
+}
+
+.navbar-toggler {
+  border-color: #08ffc5; /* Ağ toqqlayıcı sərhədi */
+}
+
+.navbar-toggler-icon {
+  /* Bu hissə onsuz da var idi, sadəcə təkrarladım tam olsun deyə  */
+  background-image: url("data:image/svg+xml,%3c%3fxml version='1.0' encoding='UTF-8'%3f%3e%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(8, 255, 197)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+/* Menyu Stili Bitir  */
+
+/* Şəkil Əlavə Edilmiş Header Stili  */
+header.text-black.text-center.py-5 {
+  background-image: url('https://i0.wp.com/www.paperzip.co.uk/wp-content/uploads/2018/03/colourful-square-alphabet.jpg'); /* Şəklin yolunu bura daxil edin */
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  /* Əlavə stil xüsusiyyətləri lazım olsa  */
+}
