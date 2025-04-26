@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfel Mağazası - Ödəniş uğurla tamamlandı.">
+    <title>Portfel - Ödəniş Uğurlu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+            color: #1F1F1F;
+        }
+        .btn-gold {
+            background-color: #D4AF37;
+            color: #1F1F1F;
+        }
+        .btn-gold:hover {
+            background-color: #B8972E;
+        }
+        header {
+            background-color: #1F1F1F;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="text-white py-4 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                    <circle cx="20" cy="20" r="18" stroke="#D4AF37" stroke-width="4"/>
+                    <path d="M20 10L28 28H12L20 10Z" fill="#D4AF37"/>
+                </svg>
+                <h1 class="text-2xl font-bold">Portfel Mağazası</h1>
+            </div>
+            <nav class="flex items-center space-x-6">
+                <a href="/index.html" class="hover:underline">Ana Səhifə</a>
+                <a href="/index.html#products" class="hover:underline">Məhsullar</a>
+                <a href="/cart.html" class="hover:underline">Səbət (<span id="cart-count">0</span>)</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Success Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ödəniş Uğurlu!</h2>
+            <p class="text-lg mb-8">Sifarişiniz qəbul edildi. Tezliklə sizinlə əlaqə saxlayacağıq.</p>
+            <a href="/index.html" class="btn-gold px-6 py-3 rounded-lg font-semibold">Alış-verişə Davam Et</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1F1F1F] text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2">Əlaqə: <a href="mailto:info@portfel.az" class="underline">info@portfel.az</a> | +994 123 456 789</p>
+            <p>© 2025 Portfel Mağazası. Bütün hüquqlar qorunur.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Səbət sayını yenilə
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCount = document.getElementById('cart-count');
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = count;
+        }
+
+        // Səhifə yüklənərkən səbət sayını yenilə
+        updateCartCount();
+    </script>
+</body>
+</html>
