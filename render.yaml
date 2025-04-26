@@ -4,7 +4,7 @@
     env: node
     region: oregon # İstədiyiniz regionu seçin (məsələn, oregon, frankfurt)
     plan: free # Pulsuz plan, ehtiyaca görə starter və ya pro seçə bilərsiniz
-    branch: main # GitHub branch adı
+    branch: master # GitHub branch adı
     repo: https://github.com/ixemAB/AZ # GitHub repository linkini əlavə edin
     buildCommand: npm install
     startCommand: npm start # və ya "node server.js" (package.json-da start skriptinə bağlıdır)
