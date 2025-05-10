@@ -1,0 +1,223 @@
+﻿import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Products from './components/Products';
+import ProductDetail from './components/ProductDetail';
+import Cart from './components/Cart';
+import Checkout from './components/Checkout';
+import Login from './components/Login';
+import Register from './components/Register';
+import Profile from './components/Profile';
+import AdminPanel from './components/AdminPanel';
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
+  const [cart, setCart] = useState([]);
+  const [userInterests, setUserInterests] = useState([]);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/products')
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log('Məhsullar:', data);
+        setProducts(data);
+      })
+      .catch((err) => console.error('Məhsulları əldə edərkən xəta:', err));
+
+    fetch('http://localhost:3001/categories')
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log('Kateqoriyalar:', data);
+        setCategories(data);
+      })
+      .catch((err) => console.error('Kateqoriyaları əldə edərkən xəta:', err));
+
+    const loggedInStatus = localStorage.getItem('isLoggedIn');
+    const storedUser = localStorage.getItem('user');
+    const storedInterests = localStorage.getItem('userInterests');
+    if (loggedInStatus === 'true' && storedUser) {
+      setIsLoggedIn(true);
+      const parsedUser = JSON.parse(storedUser);
+      setUser(parsedUser);
+      if (parsedUser.email === 'admin@example.com') {
+        setIsAdmin(true);
+      }
+    }
+    if (storedInterests) {
+      setUserInterests(JSON.parse(storedInterests));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isLoggedIn && user) {
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('user', JSON.stringify(user));
+    } else {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('user');
+    }
+    localStorage.setItem('userInterests', JSON.stringify(userInterests));
+  }, [isLoggedIn, user, userInterests]);
+
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+    alert(`${product.name} səbətə əlavə olundu!`);
+  };
+
+  const trackInterest = (product) => {
+    setUserInterests((prev) => {
+      const updatedInterests = prev.filter((item) => item.id !== product.id);
+      updatedInterests.unshift(product);
+      return updatedInterests.slice(0, 2);
+    });
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUser(null);
+    setIsAdmin(false);
+    setIsMobileMenuOpen(false);
+    window.location.href = '/';
+  };
+
+  return (
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Helmet>
+          <title>Onlayn Mağaza</title>
+          <meta name="description" content="Müasir onlayn mağaza platforması" />
+        </Helmet>
+        <Navbar
+          isLoggedIn={isLoggedIn}
+          user={user}
+          isAdmin={isAdmin}
+          cart={cart}
+          handleLogout={handleLogout}
+          categories={categories}
+          isDropdownOpen={isDropdownOpen}
+          setIsDropdownOpen={setIsDropdownOpen}
+          isMobileMenuOpen={isMobileMenuOpen}
+          setIsMobileMenuOpen={setIsMobileMenuOpen}
+        />
+        <main className="flex-grow">
+          <Switch>
+            <Route
+              path="/"
+              exact
+              render={() => (
+                <Home
+                  allProducts={products}
+                  categories={categories}
+                  addToCart={addToCart}
+                  trackInterest={trackInterest}
+                />
+              )}
+            />
+            <Route
+              path="/products/:category?"
+              render={(props) => (
+                <Products
+                  {...props}
+                  products={products}
+                  categories={categories}
+                  addToCart={addToCart}
+                  trackInterest={trackInterest}
+                />
+              )}
+            />
+            <Route
+              path="/product/:id"
+              render={(props) => (
+                <ProductDetail
+                  {...props}
+                  addToCart={addToCart}
+                  trackInterest={trackInterest}
+                  products={products}
+                />
+              )}
+            />
+            <Route
+              path="/cart"
+              render={() => <Cart cart={cart} setCart={setCart} />}
+            />
+            <Route
+              path="/checkout"
+              render={() => <Checkout cart={cart} setCart={setCart} />}
+            />
+            <Route
+              path="/login"
+              render={() => (
+                <Login setIsLoggedIn={setIsLoggedIn} setUser={setUser} />
+              )}
+            />
+            <Route
+              path="/register"
+              render={() => (
+                <Register setIsLoggedIn={setIsLoggedIn} setUser={setUser} />
+              )}
+            />
+            <Route
+              path="/profile"
+              render={() => (
+                <Profile
+                  user={user}
+                  setUser={setUser}
+                  setIsLoggedIn={setIsLoggedIn}
+                  userInterests={userInterests}
+                  allProducts={products}
+                  setUserInterests={setUserInterests}
+                />
+              )}
+            />
+            <Route
+              path="/admin"
+              render={() =>
+                isAdmin ? (
+                  <AdminPanel
+                    products={products}
+                    setProducts={setProducts}
+                    categories={categories}
+                  />
+                ) : (
+                  <div className="container mx-auto p-4 sm:p-6">
+                    <p>Bu səhifəyə giriş icazəniz yoxdur.</p>
+                    <Link to="/" className="text-blue-500 hover:underline">
+                      Ana Səhifəyə Qayıt
+                    </Link>
+                  </div>
+                )
+              }
+            />
+          </Switch>
+        </main>
+        <footer className="bg-gray-800 text-white p-4 mt-auto">
+          <div className="container mx-auto text-center">
+            <p className="text-sm sm:text-base">
+              © 2025 Onlayn Mağaza. Bütün hüquqlar qorunur.
+            </p>
+          </div>
+        </footer>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
