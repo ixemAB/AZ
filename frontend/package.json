@@ -1,0 +1,38 @@
+﻿{
+  "name": "online-store-frontend",
+  "version": "1.0.0",
+  "description": "Onlayn mağaza frontend-i",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "build": "webpack"
+  },
+  "description": "Müasir tələblərə uyğun onlayn mağaza frontend layihəsi",
+  "license": "MIT",
+  "dependencies": {
+    "@stripe/react-stripe-js": "^1.1.2",
+    "@stripe/stripe-js": "^1.9.0",
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^5.2.1",
+    "react-router-dom": "^5.2.0",
+    "tailwindcss": "^1.9.6"
+  },
+  "devDependencies": {
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2",
+    "html-webpack-plugin": "^4.5.2",
+    "babel-loader": "^8.0.6",
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "style-loader": "^1.3.0",
+    "css-loader": "^4.3.0",
+    "postcss-loader": "^4.0.4",
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.35"
+  }
+}
