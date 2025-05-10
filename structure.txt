@@ -1,0 +1,46 @@
+﻿online-store/
+├── backend/
+│   ├── data/
+│   │   ├── products.json
+│   │   └── categories.json
+│   ├── routes/
+│   │   ├── products.js
+│   │   └── categories.js
+│   ├── package.json
+│   ├── package-lock.json
+│   └── server.js
+├── frontend/
+│   ├── public/
+│   │   ├── index.html
+│   │   └── favicon.ico
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Home.jsx
+│   │   │   ├── Products.jsx
+│   │   │   ├── ProductDetail.jsx
+│   │   │   ├── Cart.jsx
+│   │   │   ├── Checkout.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   ├── Profile.jsx
+│   │   │   └── AdminPanel.jsx
+│   │   ├── App.jsx
+│   │   ├── index.js
+│   │   └── index.css
+│   ├── .babelrc
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── webpack.config.js
+│   ├── tailwind.config.js
+│   ├── postcss.config.js
+│   └── .env
+├── README.md
+└── .gitignore
+
+cd C:\Users\ixemab\Desktop\Online-Store\backend
+
+cd C:\Users\ixemab\Desktop\Online-Store\frontend
+
+npm install və npm start
+
