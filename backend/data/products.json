@@ -1,0 +1,4 @@
+﻿[
+  { "id": 1, "name": "Məhsul 1", "price": 10, "category": "Elektronika" },
+  { "id": 2, "name": "Məhsul 2", "price": 20, "category": "Geyim" }
+]
