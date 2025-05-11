@@ -9,7 +9,7 @@ const app = express();
 
 app.use(helmet());
 app.use(cors({
-  origin: 'https://online-store-frontend-skr8.onrender.com',
+  origin: 'https://online-store-backend-cenl.onrender.com',
   credentials: true,
 }));
 app.use(express.json());
