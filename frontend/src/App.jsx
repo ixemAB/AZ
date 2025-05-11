@@ -24,7 +24,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:3001/products')
+    fetch('https://online-store-frontend-skr8.onrender.com/products')
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
