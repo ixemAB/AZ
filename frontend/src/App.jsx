@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Navbar from './components/Navbar';
@@ -24,7 +24,9 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    fetch('https://online-store-frontend-skr8.onrender.com/products')
+    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+
+    fetch(`${API_URL}/products`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -37,7 +39,7 @@ function App() {
       })
       .catch((err) => console.error('Məhsulları əldə edərkən xəta:', err));
 
-    fetch('https://online-store-frontend-skr8.onrender.com/categories')
+    fetch(`${API_URL}/categories`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
