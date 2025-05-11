@@ -24,9 +24,9 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    const API_URL = process.env.REACT_APP_API_URL || 'https://online-store-frontend-skr8.onrender.com';
+    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
-    fetch(`${API_URL}/products`)
+    fetch(`${https://online-store-backend-cenl.onrender.com}/products`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -39,7 +39,7 @@ function App() {
       })
       .catch((err) => console.error('Məhsulları əldə edərkən xəta:', err));
 
-    fetch(`${API_URL}/categories`)
+    fetch(`${https://online-store-backend-cenl.onrender.com}/categories`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
