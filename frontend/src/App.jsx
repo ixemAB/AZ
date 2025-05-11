@@ -22,9 +22,16 @@ function App() {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const API_URL = process.env.REACT_APP_API_URL;
+
+    // API_URL-ni yoxlayın
+    if (!API_URL) {
+      setError('API_URL təyin edilməyib. Zəhmət olmasa .env faylını yoxlayın.');
+      return;
+    }
 
     // Məhsulları yüklə
     fetch(`${API_URL}/products`)
@@ -38,7 +45,10 @@ function App() {
         console.log('Məhsullar:', data);
         setProducts(data);
       })
-      .catch((err) => console.error('Məhsulları əldə edərkən xəta:', err));
+      .catch((err) => {
+        console.error('Məhsulları əldə edərkən xəta:', err);
+        setError('Məhsulları yükləyərkən xəta oldu: ' + err.message);
+      });
 
     // Kateqoriyaları yüklə
     fetch(`${API_URL}/categories`)
@@ -52,7 +62,10 @@ function App() {
         console.log('Kateqoriyalar:', data);
         setCategories(data);
       })
-      .catch((err) => console.error('Kateqoriyaları əldə edərkən xəta:', err));
+      .catch((err) => {
+        console.error('Kateqoriyaları əldə edərkən xəta:', err);
+        setError('Kateqoriyaları yükləyərkən xəta oldu: ' + err.message);
+      });
 
     const loggedInStatus = localStorage.getItem('isLoggedIn');
     const storedUser = localStorage.getItem('user');
@@ -101,6 +114,17 @@ function App() {
     setIsMobileMenuOpen(false);
     window.location.href = '/';
   };
+
+  if (error) {
+    return (
+      <div className="container mx-auto p-4 text-red-500">
+        <p>{error}</p>
+        <Link to="/" className="text-blue-500 hover:underline">
+          Ana Səhifəyə Qayıt
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <Router>
