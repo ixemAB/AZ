@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  mode: 'production', // Bu sətiri əlavə edin
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
