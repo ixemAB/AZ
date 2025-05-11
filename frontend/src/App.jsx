@@ -24,9 +24,10 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    const API_URL = process.env.REACT_APP_API_URL || 'https://online-store-backend-cenl.onrender.com';
+    const API_URL = process.env.REACT_APP_API_URL;
 
-    fetch(`${https://online-store-backend-cenl.onrender.com}/products`)
+    // Məhsulları yüklə
+    fetch(`${API_URL}/products`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -39,7 +40,8 @@ function App() {
       })
       .catch((err) => console.error('Məhsulları əldə edərkən xəta:', err));
 
-    fetch(`${https://online-store-backend-cenl.onrender.com}/categories`)
+    // Kateqoriyaları yüklə
+    fetch(`${API_URL}/categories`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
