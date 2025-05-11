@@ -24,7 +24,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+    const API_URL = process.env.REACT_APP_API_URL || 'https://online-store-backend-cenl.onrender.com';
 
     fetch(`${https://online-store-backend-cenl.onrender.com}/products`)
       .then((res) => {
