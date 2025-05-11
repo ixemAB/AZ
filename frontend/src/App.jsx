@@ -37,7 +37,7 @@ function App() {
       })
       .catch((err) => console.error('Məhsulları əldə edərkən xəta:', err));
 
-    fetch('http://localhost:3001/categories')
+    fetch('https://online-store-frontend-skr8.onrender.com/categories')
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
