@@ -20,7 +20,7 @@ if (!fs.existsSync(dataDir)) {
 
 app.use(express.json());
 app.use(cors({
-  origin: 'https://online-store-frontend.onrender.com',
+  origin: 'https://online-store-frontend-e7am.onrender.com',
   credentials: true,
 }));
 app.use(helmet());
