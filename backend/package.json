@@ -4,8 +4,9 @@
   "description": "Onlayn mağaza backend-i",
   "main": "server.js",
   "scripts": {
-  "start": "node server.js",
-  "keepalive": "node keepalive.js"
+  "start": "serve -s dist",
+  "build": "webpack",
+  "heroku-postbuild": "npm run build"
 },
   "dependencies": {
     "express": "^4.17.1",
