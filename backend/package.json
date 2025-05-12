@@ -4,9 +4,9 @@
   "description": "Onlayn mağaza backend-i",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
-  },
+  "start": "node server.js",
+  "keepalive": "node keepalive.js"
+},
   "dependencies": {
     "express": "^4.17.1",
     "cors": "^2.8.5",
