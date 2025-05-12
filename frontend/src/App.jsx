@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -32,8 +32,7 @@ function App() {
       return;
     }
 
-    // Məhsulları yüklə
-    fetch(`${API_URL}/products`, { timeout: 5000 }) // 5 saniyə timeout
+    fetch(`${API_URL}/products`, { timeout: 5000 })
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();
@@ -47,8 +46,7 @@ function App() {
         setError('Məhsulları yükləyərkən xəta oldu: ' + err.message);
       });
 
-    // Kateqoriyaları yüklə
-    fetch(`${API_URL}/categories`, { timeout: 5000 }) // 5 saniyə timeout
+    fetch(`${API_URL}/categories`, { timeout: 5000 })
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();
@@ -137,65 +135,58 @@ function App() {
           setIsMobileMenuOpen={setIsMobileMenuOpen}
         />
         <main className="flex-grow">
-          <Switch>
+          <Routes>
             <Route
               path="/"
-              exact
-              render={() => (
+              element={
                 <Home
                   allProducts={products}
                   categories={categories}
                   addToCart={addToCart}
                   trackInterest={trackInterest}
                 />
-              )}
+              }
             />
             <Route
               path="/products/:category?"
-              render={(props) => (
+              element={
                 <Products
-                  {...props}
                   products={products}
                   categories={categories}
                   addToCart={addToCart}
                   trackInterest={trackInterest}
                 />
-              )}
+              }
             />
             <Route
               path="/product/:id"
-              render={(props) => (
+              element={
                 <ProductDetail
-                  {...props}
                   addToCart={addToCart}
                   trackInterest={trackInterest}
                   products={products}
                 />
-              )}
+              }
             />
             <Route
               path="/cart"
-              render={() => <Cart cart={cart} setCart={setCart} />}
+              element={<Cart cart={cart} setCart={setCart} />}
             />
             <Route
               path="/checkout"
-              render={() => <Checkout cart={cart} setCart={setCart} />}
+              element={<Checkout cart={cart} setCart={setCart} />}
             />
             <Route
               path="/login"
-              render={() => (
-                <Login setIsLoggedIn={setIsLoggedIn} setUser={setUser} />
-              )}
+              element={<Login setIsLoggedIn={setIsLoggedIn} setUser={setUser} />}
             />
             <Route
               path="/register"
-              render={() => (
-                <Register setIsLoggedIn={setIsLoggedIn} setUser={setUser} />
-              )}
+              element={<Register setIsLoggedIn={setIsLoggedIn} setUser={setUser} />}
             />
             <Route
               path="/profile"
-              render={() => (
+              element={
                 <Profile
                   user={user}
                   setUser={setUser}
@@ -204,11 +195,11 @@ function App() {
                   allProducts={products}
                   setUserInterests={setUserInterests}
                 />
-              )}
+              }
             />
             <Route
               path="/admin"
-              render={() =>
+              element={
                 isAdmin ? (
                   <AdminPanel
                     products={products}
@@ -225,7 +216,7 @@ function App() {
                 )
               }
             />
-          </Switch>
+          </Routes>
         </main>
         <footer className="bg-gray-800 text-white p-4 mt-auto">
           <div className="container mx-auto text-center">
