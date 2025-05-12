@@ -27,18 +27,15 @@ function App() {
   useEffect(() => {
     const API_URL = process.env.REACT_APP_API_URL;
 
-    // API_URL-ni yoxlayın
     if (!API_URL) {
       setError('API_URL təyin edilməyib. Zəhmət olmasa .env faylını yoxlayın.');
       return;
     }
 
     // Məhsulları yüklə
-    fetch(`${API_URL}/products`)
+    fetch(`${API_URL}/products`, { timeout: 5000 }) // 5 saniyə timeout
       .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
-        }
+        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();
       })
       .then((data) => {
@@ -51,11 +48,9 @@ function App() {
       });
 
     // Kateqoriyaları yüklə
-    fetch(`${API_URL}/categories`)
+    fetch(`${API_URL}/categories`, { timeout: 5000 }) // 5 saniyə timeout
       .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
-        }
+        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();
       })
       .then((data) => {
@@ -74,13 +69,9 @@ function App() {
       setIsLoggedIn(true);
       const parsedUser = JSON.parse(storedUser);
       setUser(parsedUser);
-      if (parsedUser.email === 'admin@example.com') {
-        setIsAdmin(true);
-      }
+      if (parsedUser.email === 'admin@example.com') setIsAdmin(true);
     }
-    if (storedInterests) {
-      setUserInterests(JSON.parse(storedInterests));
-    }
+    if (storedInterests) setUserInterests(JSON.parse(storedInterests));
   }, []);
 
   useEffect(() => {
