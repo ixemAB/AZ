@@ -2,12 +2,13 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'production', // Bu sətiri əlavə edin
+  mode: 'production',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/',
+    clean: true, // Əvvəlki build fayllarını təmizləyir
   },
   module: {
     rules: [
@@ -41,12 +42,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
+      minify: true, // HTML-ni kiçiltir
     }),
   ],
-  devServer: {
-    historyApiFallback: true,
-    port: 3000,
-  },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
