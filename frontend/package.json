@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^2.9.0",
-    "@stripe/stripe-js": "^4.0.0", // Uyğun versiyaya yenilənir
+    "@stripe/stripe-js": "^4.0.0", 
     "axios": "^1.7.3",
     "dotenv": "^16.4.5",
     "react": "^18.3.1",
