@@ -1,20 +1,16 @@
-﻿{
+{
   "name": "online-store-backend",
   "version": "1.0.0",
   "description": "Onlayn mağaza backend-i",
   "main": "server.js",
   "scripts": {
-  "start": "serve -s dist",
-  "build": "webpack",
-  "heroku-postbuild": "npm run build"
-},
-  "dependencies": {
-    "express": "^4.17.1",
-    "cors": "^2.8.5",
-    "helmet": "^4.6.0",
-    "dotenv": "^8.2.0"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.12"
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "dotenv": "^16.4.5"
   }
 }
